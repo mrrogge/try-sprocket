@@ -1,5 +1,5 @@
 name: Vercel Production Deployment
-env:
+secrets:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -19,4 +19,4 @@ jobs:
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
